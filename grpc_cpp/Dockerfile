@@ -38,4 +38,6 @@ RUN cmake \
   -DCMAKE_INSTALL_PREFIX="$HOME/install" \
   $HOME/grpc
 
-RUN make -j$NPROC install
+#RUN make -j$NPROC install
+# agerstmayr: workaround to prevent OOM
+RUN make -j1 install
